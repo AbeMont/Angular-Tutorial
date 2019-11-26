@@ -1,0 +1,12 @@
+<!-- messageService is coming from the parameter passed in this componrnt's constructor. We also get access to its methods such as add() and clear() -->
+
+<div>{{messageService.messages.length}}</div>
+
+<div *ngIf="messageService.messages.length">
+
+  <h2>Messages</h2>
+  <button class="clear" (click)="messageService.clear()">clear</button>
+  <!-- There could be an array with multiple messages -->
+  <div *ngFor='let message of messageService.messages'> {{message}} </div>
+
+</div>

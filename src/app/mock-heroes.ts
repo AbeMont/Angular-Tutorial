@@ -1,5 +1,8 @@
 import { Hero } from './hero';
 
+// We are defining an array with objects.
+// We define a variable called HEROES.
+// By using the Hero obj, the data types will be used and and Heroes will be an []
 export const HEROES: Hero[] = [
   { id: 11, name: 'Dr Nice' },
   { id: 12, name: 'Narco' },

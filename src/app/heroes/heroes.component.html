@@ -1,19 +1,47 @@
-<!-- We use the hero property to access the name and use a pipe to
-uppercase -->
 
 <h2>My Heroes</h2>
 <ul class="heroes">
     <!-- *ngFor is Angular's repeater directive. 
   It repeats the host element for each element in a list. -->
-    <li *ngFor="let hero of heroes" [class.selected]="hero === selectedHero" (click)="onSelect(hero)">
-        <span class="badge">{{hero.id}}</span> {{hero.name}}
+    <li 
+    *ngFor="let heropassed of heroes" 
+    [class.selected]="heropassed === selectedHero" 
+    (click)="onSelect(heropassed)">
+        <span class="badge">{{heropassed.id}}</span> {{heropassed.name}}
     </li>
 </ul>
+<!-- We pass or selecthero to the other component by using property Binding -->
+<app-hero-detail [heroProp]="selectedHero"></app-hero-detail>
 
-<div *ngIf="selectedHero">
-    <h2>{{selectedHero.name | uppercase}} Details</h2>
-    <div><span>id: </span>{{selectedHero.id}}</div>
-    <label>name:
-    <input [(ngModel)]="selectedHero.name" placeholder="name"/>
-  </label>
-</div>
+<!-- 
+  Interpolation - "injects" the value into the html, so when you say value="{{ hello }}" Angular is inserting your
+  variable between the brackets.
+ -->
+
+ <!-- 
+   Property Binding - allows Angular to directly access the elements property in the html. this is a deeper access. When you say [value]="hello" Angular is grabbing the value property of the element, and setting your variable as that
+   property's value.
+  -->
+
+  <!-- 
+    Event Binding - allows you to use events such as a click to trigger functions. these bindings use parenthesis for
+    example (click)="myFunction($event)". this will call the myFunction() method on defined in your .ts file. the
+    parenthesis around '(click)' bind the function to the dom event.$event is a keyword passing the event object to the
+    function. you could also pass a string with single quotes, or even a variable with interpolation.
+   -->
+
+   <!-- 
+     Two way (data) binding allows you to have an event combined with a property binding. For example
+
+     <input [(ngModel)]="username">
+     <p>Hello {{username}}!</p>
+
+     will allow you to have an input and display the value at the same time
+    -->
+
+    <!-- 
+      Lastly when to use interpolation and when to use data-binding. This is usually a formality, typically when using a
+      smart component and dumb (presentation) component, you would bind to the html with property binding because of
+      readability, and because it is shall I say, "more secure" to bind to a property in that case. If you have simple
+      values, then maybe interpolation is your friend. It all comes down to readability, best practice, and preference.
+     -->

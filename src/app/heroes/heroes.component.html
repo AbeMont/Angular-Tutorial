@@ -1,17 +1,16 @@
 
-<h2>My Heroes</h2>
-<ul class="heroes">
     <!-- *ngFor is Angular's repeater directive. 
   It repeats the host element for each element in a list. -->
-    <li 
-    *ngFor="let heropassed of heroes" 
-    [class.selected]="heropassed === selectedHero" 
-    (click)="onSelect(heropassed)">
-        <span class="badge">{{heropassed.id}}</span> {{heropassed.name}}
-    </li>
+<h2>My Heroes</h2>
+<ul class="heroes">
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
+  </li>
 </ul>
 <!-- We pass or selecthero to the other component by using property Binding -->
-<app-hero-detail [heroProp]="selectedHero"></app-hero-detail>
+<!-- <app-hero-detail [heroProp]="selectedHero"></app-hero-detail> -->
 
 <!-- 
   Interpolation - "injects" the value into the html, so when you say value="{{ hello }}" Angular is inserting your

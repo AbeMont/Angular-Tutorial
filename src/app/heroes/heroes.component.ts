@@ -13,9 +13,6 @@ import { HeroService } from '../services/hero.service';
 
 export class HeroesComponent implements OnInit {
 
-  // ':' in typeScript means assigning an object
-  selectedHero: Hero;
-
   // heroes will be an array with the object of Hero
   heroes: Hero[];
 
@@ -36,14 +33,5 @@ export class HeroesComponent implements OnInit {
 
   // When we click, onSelect will run. the parameter passed will contain the data types from Hero
 
-  onSelect(heropassed: Hero): void {
-
-    //console.log(this);
-    //console.log(heropassed)
-    //console.log(this.selectedHero)
-    this.selectedHero = heropassed;
-    //console.log(this.selectedHero)
-
-  }
 
 }

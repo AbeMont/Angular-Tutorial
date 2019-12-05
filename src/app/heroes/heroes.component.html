@@ -7,10 +7,21 @@
     <a routerLink="/detail/{{hero.id}}">
       <span class="badge">{{hero.id}}</span> {{hero.name}}
     </a>
+    <button class="delete" title="delete hero" (click)="delete(hero)">x</button>
   </li>
 </ul>
-<!-- We pass or selecthero to the other component by using property Binding -->
-<!-- <app-hero-detail [heroProp]="selectedHero"></app-hero-detail> -->
+
+<div>
+  <label>Hero name:
+    <input #heroName />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(heroName.value); heroName.value=''">
+    add
+  </button>
+</div>
+
+
 
 <!-- 
   Interpolation - "injects" the value into the html, so when you say value="{{ hello }}" Angular is inserting your
